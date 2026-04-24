@@ -1,4 +1,3 @@
-// --- MODELO ---
 const model = {
     getProdutos() {
         return JSON.parse(localStorage.getItem('produtos')) || [];
@@ -19,14 +18,11 @@ const model = {
     },
     adicionarAoCarrinho(produto) {
         let carrinho = this.getCarrinho();
-        // Procura se o produto já está no carrinho
         const index = carrinho.findIndex(item => item.nome === produto.nome);
 
         if (index !== -1) {
-            // Se já existe, apenas aumenta a quantidade
             carrinho[index].quantidade += 1;
         } else {
-            // Se é novo, adiciona com quantidade 1
             carrinho.push({ ...produto, quantidade: 1 });
         }
         
@@ -37,7 +33,6 @@ const model = {
     }
 };
 
-// --- VISÃO ---
 const view = {
     renderizarProdutos(produtos) {
         const lista = document.getElementById('listaProdutos');
@@ -55,7 +50,6 @@ const view = {
         const spanQtd = document.getElementById('qtdTotal');
         const spanTotal = document.getElementById('precoTotal');
 
-        // Adicionamos um cabeçalho simples para a "tabela" do carrinho
         divItens.innerHTML = `
             <div style="display: flex; justify-content: space-between; font-weight: bold; border-bottom: 1px solid #ccc;">
                 <span style="width: 40%">Produto</span>
@@ -85,7 +79,6 @@ const view = {
     }
 };
 
-// --- CONTROLADOR ---
 const controller = {
     init() {
         view.renderizarProdutos(model.getProdutos());
