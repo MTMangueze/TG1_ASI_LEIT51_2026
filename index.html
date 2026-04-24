@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Loja Web - Gestão de Carrinho</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Loja LB Produçoes</h1>
+
+    <section>
+        <h2>Cadastrar Produto</h2>
+        <input type="text" id="nomeProduto" placeholder="Nome do Produto">
+        <input type="number" id="precoProduto" placeholder="Preço (MT)">
+        <button onclick="controller.adicionarProduto()">Cadastrar</button>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Produtos Disponíveis</h2>
+        <div id="listaProdutos"></div>
+    </section>
+
+    <hr>
+
+    <section>
+    <h2>Meu Carrinho</h2>
+    <div id="itensCarrinho"></div>
+    
+    <div id="resumoCarrinho">
+        <p>Total de itens: <span id="qtdTotal">0</span></p>
+        <p>Total a pagar: <span id="precoTotal">0.00</span> MT</p>
+    </div>
+    <button id="btnEncerrar" onclick="controller.encerrarCompra()">Encerrar Compra</button>
+</section>
+
+    <script src="script.js"></script>
+</body>
+</html>
